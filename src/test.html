@@ -1,0 +1,45 @@
+<!doctype HTML>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
+    <script type="text/javascript" src="js/pd-fileutils.js"></script>
+    <script type="text/javascript" src="js/webpd-latest.min.js"></script>
+    <script type="text/javascript" src="js/examples.js"></script>
+
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    <link href='css/examples.css' rel='stylesheet' type='text/css'>
+  </head>
+
+  <body>
+    <div id="loading">Loading ...</div>
+    <button id="startButton">Start</button>
+    
+    <div id="controls">
+      <form>
+        <input type="text" id="freqInput" />
+        <input type="submit" value="Set frequency" />
+      </form>
+    </div>
+
+    <div id="pdfuNote">Patch rendered to SVG using <a href="https://github.com/sebpiq/pd-fileutils">pd-fileutils</a></div>
+    <div id="svg"></div>
+
+    <script type="text/javascript">
+      
+      webPdExamples.init()
+      $('form').submit(function(event) {
+        event.preventDefault()
+        Pd.send('freq', [parseFloat($('#freqInput').val())])
+      })
+      var patch
+      $.get('patches/phasor4.pd', function(mainStr) {
+        // Loading the patch
+        patch = Pd.loadPatch(mainStr)
+        webPdExamples.patchLoaded(mainStr)
+      })
+    </script>
+
+  </body>
+</html>
