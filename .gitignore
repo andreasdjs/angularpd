@@ -4,6 +4,9 @@
 /dist
 /tmp
 
+# build script
+dist.sh
+
 # dependencies
 /node_modules
 
