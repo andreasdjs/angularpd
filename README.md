@@ -12,7 +12,7 @@ ng build -prod --base-href <your URL/domain/path>
 ## Adding patches
 
 Pure Data patches can be added in the following folder:
-assets/patches
+src/assets/patches
 
 ## Pure Data
 
