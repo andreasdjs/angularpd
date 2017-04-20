@@ -7,7 +7,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Build
 
-ng build -prod --base-href <Your URL/domain/path>
+ng build -prod --base-href <your URL/domain/path>
 
 ## Adding patches
 
