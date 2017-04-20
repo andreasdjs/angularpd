@@ -7,48 +7,62 @@
   <!-- <button md-raised-button (click)="destroy()">Destroy</button> -->
 </div>
 
+<div class="tweakingBar sequencer">
+  <div><b>Hihat</b></div>
+  <md-checkbox [(ngModel)]="hihatpos1" (change)="hht(1, $event)" class="small"></md-checkbox>
+  <md-checkbox [(ngModel)]="hihatpos2" (change)="hht(2 ,$event)" class="small"></md-checkbox>
+  <md-checkbox [(ngModel)]="hihatpos3" (change)="hht(3 ,$event)" class="small"></md-checkbox>
+  <md-checkbox [(ngModel)]="hihatpos4" (change)="hht(4 ,$event)" class="small"></md-checkbox>
+  <md-checkbox [(ngModel)]="hihatpos5" (change)="hht(5, $event)" class="small"></md-checkbox>
+  <md-checkbox [(ngModel)]="hihatpos6" (change)="hht(6 ,$event)" class="small"></md-checkbox>
+  <md-checkbox [(ngModel)]="hihatpos7" (change)="hht(7 ,$event)" class="small"></md-checkbox>
+  <md-checkbox [(ngModel)]="hihatpos8" (change)="hht(8 ,$event)" class="small"></md-checkbox>
+  <md-checkbox [(ngModel)]="hihatpos9" (change)="hht(9, $event)" class="small"></md-checkbox>
+  <md-checkbox [(ngModel)]="hihatpos10" (change)="hht(10 ,$event)" class="small"></md-checkbox>
+  <md-checkbox [(ngModel)]="hihatpos11" (change)="hht(11 ,$event)" class="small"></md-checkbox>
+  <md-checkbox [(ngModel)]="hihatpos12" (change)="hht(12 ,$event)" class="small"></md-checkbox>
+  <md-checkbox [(ngModel)]="hihatpos13" (change)="hht(13, $event)" class="small"></md-checkbox>
+  <md-checkbox [(ngModel)]="hihatpos14" (change)="hht(14 ,$event)" class="small"></md-checkbox>
+  <md-checkbox [(ngModel)]="hihatpos15" (change)="hht(15 ,$event)" class="small"></md-checkbox>
+  <md-checkbox [(ngModel)]="hihatpos16" (change)="hht(16 ,$event)" class="small"></md-checkbox>
+</div>
+
 <div class="tweakingBar">
-  <div class="tweakingBarLabel">
-    <b>Pitch</b>
-  </div>
-  <md-slider min="20" step="20" value="220" max="8000" [(ngModel)]="frequency" (change)="onChange()" (input)="onInput($event)" class="freqSlider" thumbLabel vertical></md-slider>
-<!--   <md-slider min="20" step="20" value="220" max="8000" [(ngModel)]="frequency" (change)="onChange()" (input)="onInput($event)" class="freqSlider"></md-slider>
- --><!--   <md-slider min="20" step="20" value="220" max="10000" [(ngModel)]="frequency" (change)="onChange()" (input)="onInput($event)" class="freqSlider"></md-slider>
- -->
-<!-- <input type="text" [ngModel]="mymodel" (keypress)="mymodel=$event.target.value"/>
-{{mymodel}}
- -->
+  <md-slider min="20" step="20" value="220" max="8000" [(ngModel)]="frequency" (change)="onChange()" (input)="phaseFreq($event)" thumbLabel vertical></md-slider> 
+</div>
 
+<!-- Grid with controls -->
 
-<!--   <md-slider flex min="20" step="20" value="220" max="10000" [(ngModel)]="frequency" (change)="onChange()" (input)="onInput($event)"></md-slider>
- --><!--   <form>
-    <input type="text" id="freqInput" />
-    <input type="submit" value="Set frequency" />
-  </form>
- --></div>
-
-<div class="themSliders">
-
- <!--  <md-slider min="1" max="5" step="0.5" value="1.5" ng-model="myValue" vertical></md-slider>
-  <md-slider min="1" max="5" step="0.5" value="2.5" vertical></md-slider>
-  <md-slider min="1" max="5" step="0.5" value="1.5" vertical></md-slider>
-  <md-slider min="1" max="5" step="0.5" value="3.5" vertical></md-slider> -->
-
-
-<!--   <md-slider min="1" max="5" step="0.5" value="3.5" vertical></md-slider> -->
-
-<!--   <md-slider min="1" max="5" step="0.5" value="3.5" [(ngModel)]="myValue" (change)="onChange()" vertical></md-slider>
- -->
-
-<!--   <md-slider min="1" max="5" step="0.5" value="4.5" (input)="onInputChange($event)" vertical></md-slider>
- -->
- <!-- <md-checkbox [ngModel]="toggleSound()" (change)="onChange()">Sound On/Off</md-checkbox>
-  -->
+<div class="tweakingBar">
 <!--
- <md-slide-toggle>Reverb</md-slide-toggle>
- -->
- <md-slide-toggle [(ngModel)]="delay" (change)="toggleDelay()">Delay</md-slide-toggle>
+  <div class="sliders">
+    <md-grid-list cols="4" rowHeight="32" class="grid-tile-label">
+      <md-grid-tile>Pitch</md-grid-tile>
+      <md-grid-tile>Cutoff</md-grid-tile>
+      <md-grid-tile>Frequency</md-grid-tile>
+      <md-grid-tile>A</md-grid-tile>
+    </md-grid-list>
+    <md-grid-list cols="4" rowHeight="130">
+      <md-grid-tile class="grid-tile"><md-slider min="20" step="20" value="220" max="8000" [(ngModel)]="frequency" (change)="onChange()" (input)="trigger($event)" vertical></md-slider></md-grid-tile>
+      <md-grid-tile>2</md-grid-tile>
+      <md-grid-tile>3</md-grid-tile>
+      <md-grid-tile>4</md-grid-tile>
+    </md-grid-list>
+  </div>
+</div>
+-->
 
+<div class="tweakingBar">
+  <!-- Squeaker --> 
+  <md-slide-toggle [(ngModel)]="squeaker" (change)="toggleSqueaker($event)">Squeaker</md-slide-toggle>
+  <!-- Delay on/off -->
+<!--   <md-slide-toggle [(ngModel)]="delay" (change)="toggleDelay()">Delay</md-slide-toggle> -->
+  <!-- Set delay -->
+<!--
+  <button md-raised-button (click)="delayDec()">-</button>
+  <span class="delayTime" style="font-weight:bold; width:120px;">{{ delayTime }}</span>
+  <button md-raised-button (click)="delayInc()">+</button>
+-->  
 </div>
 
 <!-- Render SVG image of patch -->
